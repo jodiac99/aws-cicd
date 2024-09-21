@@ -17,6 +17,15 @@ pipeline {
             steps{
                 sh 'docker build -t "${IMAGE_TAG}:${IMAGE_VERSION}" .'   
                 sh 'docker images'
+
+            }
+        }
+
+        stage('test'){
+            steps{
+                sh 'echo test'   
+                
+                
             }
         }
     }
