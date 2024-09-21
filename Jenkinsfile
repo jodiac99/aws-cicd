@@ -1,9 +1,11 @@
 pipeline {
     agent any
-
-    env {
+    
+    environment {
         BRANCH_NAME = 'main'
         GIT_URL = 'https://github.com/jodiac99/aws-cicd.git'
+        IMAGE_TAG = jodiac99/awscicd
+        IMAGE_VERSION = ${BUILD_NUMBER}
     }
     stages {
         stage('git checkout'){
@@ -13,7 +15,7 @@ pipeline {
         }
         stage('docker build'){
             steps{
-                sh 'docker build -t aws-cicd .'
+                sh 'docker build -t "${IMAGE_TAG}:${IMAGE VERSION }" .'   
                 sh 'docker images'
             }
         }
